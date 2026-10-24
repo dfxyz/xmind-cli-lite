@@ -249,6 +249,7 @@ relationship 挂在 sheet 上：
 ### 5.1 命令
 
 ```text
+xmind-cli-lite new <file.xmind> [--force]
 xmind-cli-lite create <draft.md> -o <out.xmind> [--skeleton S] [--sheet T] [--title T] [--dry-run] [--force] [--no-validate]
 xmind-cli-lite create --stdin -o <out.xmind> --title T [--skeleton S] [--sheet T] [--dry-run] [--force]
 xmind-cli-lite read <file.xmind> [--sheet <id|title>] [--format json|outline] [--depth N]
@@ -260,6 +261,7 @@ xmind-cli-lite link <file.xmind> --topic <target> (--url U | --file P | --remove
 xmind-cli-lite image <file.xmind> --topic <target> (--input P | --remove) [--width N]
 ```
 
+- `new` 生成单 sheet、单根主题「根主题」的空文档，等价于 `create --stdin --title "根主题"` 加空输入。
 - `read` 默认 `--format json`；`outline` 是人/模型可读的**有损预览**。
 - `outline` 只输出层级、备注、链接，浮动主题单列一节；末尾附只读结构附录（boundary/summary/relationship）。**不可回灌**。
 - `--depth` 只影响 `outline`；JSON 始终完整。
@@ -272,7 +274,7 @@ xmind-cli-lite image <file.xmind> --topic <target> (--input P | --remove) [--wid
 
 ### 5.2 输出与退出码
 
-- 变更命令（create/batch/link/image）默认 stdout 输出 JSON；人读信息走 stderr。
+- 变更命令（new/create/batch/link/image）默认 stdout 输出 JSON；人读信息走 stderr。
 - `read --format json`、`describe`、`sheets`、`validate --json` 输出 JSON。
 - 错误也输出 JSON：`{"ok":false,"error":{"code":"...","message":"..."}}`。
 - 退出码：`0` 成功；`1` IO/文件错误；`2` 用法错误；`3` 校验失败。

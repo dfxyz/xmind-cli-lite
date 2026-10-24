@@ -177,6 +177,25 @@ fn create_file(dir: &Temp, name: &str, extra: &[&str]) -> PathBuf {
 }
 
 #[test]
+fn new_creates_blank_document() {
+    let dir = Temp::new();
+    let file = dir.path().join("blank.xmind");
+
+    let value = assert_ok(&run(cmd().arg("new").arg(&file), None));
+    assert_eq!(value["topics"], 1);
+    validate(&file);
+
+    let output = run(cmd().arg("read").arg(&file), None);
+    let sheets = assert_ok(&output);
+    assert_eq!(sheets[0]["rootTopic"]["title"], "根主题");
+    assert_eq!(sheets[0]["rootTopic"]["children"]["attached"], json!([]));
+
+    let output = run(cmd().arg("new").arg(&file), None);
+    assert_eq!(output.status.code(), Some(1));
+    assert_ok(&run(cmd().arg("new").arg(&file).arg("--force"), None));
+}
+
+#[test]
 fn create_read_batch_validate_roundtrip() {
     let dir = Temp::new();
     let file = create_file(&dir, "out.xmind", &[]);

@@ -44,7 +44,15 @@ Windows 下二进制为 `xmind-cli-lite.exe`。命令名是 `xmind-cli-lite`，�
 
 ### 1. 新建
 
-写 Markdown，全文恰好一个 H1；图片只用本地路径。
+只要一个手动编辑的空文档：
+
+```bash
+xmind-cli-lite new plan.xmind
+```
+
+生成 `Sheet 1` + 根主题「根主题」，无子节点；已存在时加 `--force` 覆盖。
+
+或用 Markdown 批量建。写 Markdown，全文恰好一个 H1；图片只用本地路径。
 
 ```markdown
 # 项目计划

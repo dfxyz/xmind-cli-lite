@@ -28,6 +28,8 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Command {
+    /// 新建只有「根主题」的空 .xmind
+    New(NewArgs),
     /// Markdown -> .xmind
     Create(CreateArgs),
     /// 读取为 JSON 或 outline
@@ -50,6 +52,16 @@ enum Command {
 pub enum Format {
     Json,
     Outline,
+}
+
+#[derive(clap::Args)]
+pub struct NewArgs {
+    /// 输出 .xmind
+    #[arg(value_name = "FILE")]
+    pub file: PathBuf,
+    /// 覆盖已存在的文件
+    #[arg(long)]
+    pub force: bool,
 }
 
 #[derive(clap::Args)]
@@ -216,6 +228,7 @@ fn main() {
 
 fn dispatch(command: Command) -> util::Result<i32> {
     match command {
+        Command::New(args) => app::new(args),
         Command::Create(args) => app::create(args),
         Command::Read(args) => app::read(args),
         Command::Describe(args) => app::describe(args),

@@ -10,7 +10,8 @@ use crate::util::{self, AppError, Result};
 use crate::validate::{self, Report};
 use crate::xmind;
 use crate::{
-    BatchArgs, CreateArgs, DescribeArgs, ImageArgs, LinkArgs, ReadArgs, SheetsArgs, ValidateArgs,
+    BatchArgs, CreateArgs, DescribeArgs, ImageArgs, LinkArgs, NewArgs, ReadArgs, SheetsArgs,
+    ValidateArgs,
 };
 
 pub fn create(args: CreateArgs) -> Result<i32> {
@@ -36,13 +37,46 @@ pub fn create(args: CreateArgs) -> Result<i32> {
         }
     };
 
-    let md::Parsed {
-        mut root,
+    let md::Parsed { root, resources } = md::parse(&text, &base, args.title.as_deref())?;
+    write_new(
+        root,
         resources,
-    } = md::parse(&text, &base, args.title.as_deref())?;
-    let class = model::structure_class(&args.skeleton)?;
+        &args.skeleton,
+        args.sheet.as_deref(),
+        &args.out,
+        args.force,
+        args.dry_run,
+        args.no_validate,
+    )
+}
+
+pub fn new(args: NewArgs) -> Result<i32> {
+    write_new(
+        model::new_topic("根主题"),
+        Vec::new(),
+        "mindmap",
+        None,
+        &args.file,
+        args.force,
+        false,
+        false,
+    )
+}
+
+#[allow(clippy::too_many_arguments)]
+fn write_new(
+    mut root: Value,
+    resources: xmind::Entries,
+    skeleton: &str,
+    sheet_title: Option<&str>,
+    out: &Path,
+    force: bool,
+    dry_run: bool,
+    no_validate: bool,
+) -> Result<i32> {
+    let class = model::structure_class(skeleton)?;
     root["structureClass"] = Value::String(class.clone());
-    let sheet_title = args.sheet.clone().unwrap_or_else(|| "Sheet 1".to_string());
+    let sheet_title = sheet_title.unwrap_or("Sheet 1").to_string();
     let sheet = model::new_sheet(&sheet_title, root, &class);
     let sheets = vec![sheet.clone()];
 
@@ -61,7 +95,7 @@ pub fn create(args: CreateArgs) -> Result<i32> {
     }
     xmind::refresh_manifest(&mut entries);
 
-    let report = if args.no_validate {
+    let report = if no_validate {
         Report::default()
     } else {
         validate::validate_entries(&entries)
@@ -73,19 +107,19 @@ pub fn create(args: CreateArgs) -> Result<i32> {
     let topics = xmind::sheet_topic_count(&sheet);
     let mut output = json!({
         "ok": true,
-        "file": args.out.display().to_string(),
+        "file": out.display().to_string(),
         "sheet": { "id": xmind::sheet_id(&sheet), "title": xmind::sheet_title(&sheet) },
         "topics": topics,
         "warnings": report.warnings,
     });
-    if args.dry_run {
+    if dry_run {
         output["dry_run"] = Value::Bool(true);
         println!("{}", serde_json::to_string(&output)?);
         return Ok(0);
     }
-    xmind::write_new(&entries, &args.out, args.force)?;
+    xmind::write_new(&entries, out, force)?;
     println!("{}", serde_json::to_string(&output)?);
-    eprintln!("已写入 {}（{} 个主题）", args.out.display(), topics);
+    eprintln!("已写入 {}（{} 个主题）", out.display(), topics);
     Ok(0)
 }
 

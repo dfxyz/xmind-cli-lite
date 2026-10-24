@@ -26,6 +26,14 @@ xmind-cli-lite --help
 
 ## 新建
 
+空文档（根主题「根主题」，无子节点）：
+
+```bash
+xmind-cli-lite new blank.xmind
+```
+
+已存在时加 `--force`。其余情况写 Markdown：
+
 1. 写 Markdown。全文恰好一个 H1；图片只用本地路径；独立成行的链接/图片前后留空行。
 2. 生成：
 
