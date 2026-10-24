@@ -1,0 +1,212 @@
+{
+  "map": {
+    "id": "e40b1e18-5f99-4c96-8172-2aff5cbc82c9",
+    "properties": {
+      "svg:fill": "#EDF0E8FF",
+      "line-tapered": "none"
+    }
+  },
+  "centralTopic": {
+    "id": "c5bd301c-afc4-484d-8e90-dc3e30b963bc",
+    "properties": {
+      "fo:font-family": "Fira Noto SC",
+      "fo:font-size": "30pt",
+      "fo:font-weight": "800",
+      "fo:font-style": "normal",
+      "fo:color": "inherited",
+      "fo:text-transform": "manual",
+      "fo:text-decoration": "none",
+      "fo:text-align": "center",
+      "svg:fill": "#000000",
+      "fill-pattern": "none",
+      "line-width": "2pt",
+      "line-color": "#ADADAD",
+      "line-pattern": "solid",
+      "border-line-color": "#000000",
+      "border-line-width": "0pt",
+      "border-line-pattern": "inherited",
+      "shape-class": "org.xmind.topicShape.roundedRect",
+      "line-class": "org.xmind.branchConnection.curve",
+      "arrow-end-class": "org.xmind.arrowShape.none",
+      "alignment-by-level": "inherited"
+    }
+  },
+  "mainTopic": {
+    "id": "2ba8a4c6-c462-4242-878d-9f6f7579378e",
+    "properties": {
+      "fo:font-family": "Fira Noto SC",
+      "fo:font-size": "18pt",
+      "fo:font-weight": "500",
+      "fo:font-style": "normal",
+      "fo:color": "#EDF0E8FF",
+      "fo:text-transform": "manual",
+      "fo:text-decoration": "none",
+      "fo:text-align": "left",
+      "svg:fill": "#087736FF",
+      "fill-pattern": "solid",
+      "line-width": "2pt",
+      "line-color": "inherited",
+      "line-pattern": "inherited",
+      "border-line-color": "inherited",
+      "border-line-width": "0pt",
+      "border-line-pattern": "inherited",
+      "shape-class": "org.xmind.topicShape.roundedRect",
+      "line-class": "org.xmind.branchConnection.roundedElbow",
+      "arrow-end-class": "inherited",
+      "alignment-by-level": "inherited"
+    }
+  },
+  "subTopic": {
+    "id": "0f0dd00b-f43b-4d95-8397-323084483ed9",
+    "properties": {
+      "fo:font-family": "Fira Noto SC",
+      "fo:font-size": "14pt",
+      "fo:font-weight": "400",
+      "fo:font-style": "normal",
+      "fo:color": "inherited",
+      "fo:text-transform": "manual",
+      "fo:text-decoration": "none",
+      "fo:text-align": "left",
+      "fill-pattern": "none",
+      "line-width": "2pt",
+      "line-color": "inherited",
+      "line-pattern": "inherited",
+      "border-line-color": "inherited",
+      "border-line-width": "0pt",
+      "border-line-pattern": "inherited",
+      "shape-class": "org.xmind.topicShape.roundedRect",
+      "line-class": "org.xmind.branchConnection.roundedElbow",
+      "arrow-end-class": "inherited",
+      "alignment-by-level": "inherited"
+    }
+  },
+  "floatingTopic": {
+    "id": "513f1174-4f30-407d-8320-758635653ad1",
+    "properties": {
+      "fo:font-family": "Fira Noto SC",
+      "fo:font-size": "14pt",
+      "fo:font-weight": "500",
+      "fo:font-style": "normal",
+      "fo:color": "inherited",
+      "fo:text-transform": "manual",
+      "fo:text-decoration": "none",
+      "fo:text-align": "left",
+      "svg:fill": "#5C6B2140",
+      "fill-pattern": "solid",
+      "line-width": "2pt",
+      "line-color": "inherited",
+      "line-pattern": "solid",
+      "border-line-color": "#5C6B21FF",
+      "border-line-width": "0pt",
+      "border-line-pattern": "inherited",
+      "shape-class": "org.xmind.topicShape.roundedRect",
+      "line-class": "org.xmind.branchConnection.roundedElbow",
+      "arrow-end-class": "org.xmind.arrowShape.none",
+      "alignment-by-level": "inherited"
+    }
+  },
+  "summaryTopic": {
+    "id": "d80a2647-831f-4b1c-a2d9-d36eee54e061",
+    "properties": {
+      "fo:font-family": "Fira Noto SC",
+      "fo:font-size": "14pt",
+      "fo:font-weight": "400",
+      "fo:font-style": "normal",
+      "fo:color": "inherited",
+      "fo:text-transform": "manual",
+      "fo:text-decoration": "none",
+      "fo:text-align": "left",
+      "svg:fill": "#000000",
+      "fill-pattern": "none",
+      "line-width": "inherited",
+      "line-color": "inherited",
+      "line-pattern": "inherited",
+      "border-line-color": "#087736FF",
+      "border-line-width": "inherited",
+      "border-line-pattern": "inherited",
+      "shape-class": "org.xmind.topicShape.roundedRect",
+      "line-class": "org.xmind.branchConnection.roundedElbow",
+      "arrow-end-class": "inherited",
+      "alignment-by-level": "inherited"
+    }
+  },
+  "boundary": {
+    "id": "bda4bbc4-8e4f-4655-a42a-048e21c0efd1",
+    "properties": {
+      "fo:font-family": "Fira Noto SC",
+      "fo:font-size": "14pt",
+      "fo:font-weight": "400",
+      "fo:font-style": "normal",
+      "fo:color": "#EDF0E8FF",
+      "fo:text-transform": "manual",
+      "fo:text-decoration": "none",
+      "fo:text-align": "center",
+      "svg:fill": "#08773680",
+      "fill-pattern": "solid",
+      "line-width": "2",
+      "line-color": "#087736FF",
+      "line-pattern": "dash",
+      "shape-class": "org.xmind.boundaryShape.roundedRect"
+    }
+  },
+  "summary": {
+    "id": "89d3c528-cb31-4c8e-bf0b-5a127701ea3e",
+    "properties": {
+      "line-width": "2pt",
+      "line-color": "#087736FF",
+      "line-pattern": "solid",
+      "shape-class": "org.xmind.summaryShape.round"
+    }
+  },
+  "relationship": {
+    "id": "b38c27a3-5e59-446d-bb35-7c73d32fe2f4",
+    "properties": {
+      "fo:font-family": "Fira Noto SC",
+      "fo:font-size": "13pt",
+      "fo:font-weight": "400",
+      "fo:font-style": "normal",
+      "fo:color": "#0A0A0A",
+      "fo:text-transform": "manual",
+      "fo:text-decoration": "none",
+      "fo:text-align": "center",
+      "line-width": "2",
+      "line-color": "#087736FF",
+      "line-pattern": "dash",
+      "shape-class": "org.xmind.relationshipShape.curved",
+      "arrow-begin-class": "org.xmind.arrowShape.none",
+      "arrow-end-class": "org.xmind.arrowShape.triangle"
+    }
+  },
+  "level3": {
+    "id": "f13a9ffc-0400-4307-9d44-fd218ee9970b",
+    "properties": {
+      "fo:font-family": "Fira Noto SC",
+      "fo:font-size": "14pt",
+      "fo:font-weight": "400",
+      "fo:font-style": "normal",
+      "fo:color": "inherited",
+      "fo:text-transform": "manual",
+      "fo:text-decoration": "none",
+      "fo:text-align": "left",
+      "svg:fill": "#08773628",
+      "fill-pattern": "solid",
+      "line-width": "2pt",
+      "line-pattern": "inherited",
+      "border-line-width": "0pt",
+      "border-line-pattern": "inherited",
+      "shape-class": "org.xmind.topicShape.roundedRect",
+      "line-class": "org.xmind.branchConnection.roundedElbow",
+      "arrow-end-class": "inherited",
+      "alignment-by-level": "inherited"
+    }
+  },
+  "zone": {
+    "id": "5ce4f89c-f362-47b6-9be1-92bb38628aa2",
+    "properties": {
+      "fo:font-family": "Fira Noto SC",
+      "fo:color": "#EDF0E8FF",
+      "svg:fill": "#0877361A",
+      "border-line-color": "#087736FF"
+    }
+  }
+}

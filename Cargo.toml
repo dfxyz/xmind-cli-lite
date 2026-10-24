@@ -1,0 +1,13 @@
+[package]
+name = "xmind-cli-lite"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+zip = { version = "9", default-features = false, features = ["deflate"] }
+pulldown-cmark = "0.13"
+uuid = { version = "1", features = ["v4"] }
+sha2 = "0.10"
+imagesize = "0.15"
